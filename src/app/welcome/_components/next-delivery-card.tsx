@@ -21,7 +21,7 @@ export default function NextDeliveryCard({
       <div
         className={cn(
           "rounded-full border overflow-hidden h-[53px] w-[53px] absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2",
-          "md:relative md:w-full md:h-auto md:transform-none md:rounded-md md:left-auto"
+          "md:relative md:w-full md:h-auto md:max-w-[339px] md:transform-none md:rounded-md md:left-auto"
         )}
       >
         <picture>
@@ -41,7 +41,13 @@ export default function NextDeliveryCard({
           <h1>{title}</h1>
         </CardTitle>
         <p className="text-sm mb-4">{message}</p>
-        <strong className="text-sm">Total price: {totalPrice}</strong>
+        <strong className="text-sm">
+          Total price:{" "}
+          {Intl.NumberFormat("en-GB", {
+            style: "currency",
+            currency: "GBP",
+          }).format(Number(totalPrice))}
+        </strong>
         <div className="mt-6 w-full flex gap-4 justify-center">
           <Button size="sm" asChild>
             <Link href="#">See details</Link>
