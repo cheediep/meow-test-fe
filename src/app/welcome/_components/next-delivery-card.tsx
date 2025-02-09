@@ -17,7 +17,7 @@ export default function NextDeliveryCard({
   hasFreeGift,
 }: NextDeliveryCardProps) {
   return (
-    <Card className="relative md:flex md:max-h-[244px] md:max-w-[752px]">
+    <Card className="relative md:flex md:max-w-[752px]">
       <div
         className={cn(
           "rounded-full border overflow-hidden h-[53px] w-[53px] absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2",
@@ -36,7 +36,12 @@ export default function NextDeliveryCard({
           />
         </picture>
       </div>
-      <CardContent className="text-center relative pb-8 pt-10">
+      <CardContent
+        className={cn(
+          "text-center relative pb-8 pt-10",
+          "md:flex md: flex-col"
+        )}
+      >
         <CardTitle>
           <h1>{title}</h1>
         </CardTitle>
@@ -48,7 +53,9 @@ export default function NextDeliveryCard({
             currency: "GBP",
           }).format(Number(totalPrice))}
         </strong>
-        <div className="mt-6 w-full flex gap-4 justify-center">
+        <div
+          className={cn("mt-6 w-full flex gap-4 justify-center", "md:mt-auto")}
+        >
           <Button size="sm" asChild>
             <Link href="#">See details</Link>
           </Button>
